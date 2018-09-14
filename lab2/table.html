@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+        
+        table {
+            background-color: floralwhite;
+            text-align: center;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        
+        th {
+            height: 50px;
+        }
+        
+        table, tr, th, td {
+            border: 1px solid red;
+        }
+        
+        caption {
+            font-size: 25px;
+        }
+        
+        tr:nth-child(even) {background-color: gainsboro}
+        
+    </style>
+    
+    
+    
+    <table>
+        <caption>A Practice Table</caption>
+            <thead> <!-- Table head -->
+                <tr>
+                    <th scope="col">Quarter</th>
+                    <th scope="col">1962</th>
+                    <th scope="col">1963</th>
+                    <th scope="col">1964</th>
+                </tr>
+            </thead>
+
+        <tbody>
+            <tr>
+                <th scope="row">Q1</th>
+                <td>$145</td>
+                <td>$159</td>
+                <td>$164</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Q2</th>
+                <td>$143</td>
+                <td>$123</td>
+                <td>$452</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Q3</th>
+                <td>$342</td>
+                <td>$123</td>
+                <td>$543</td>
+            </tr>
+            
+            <tr>
+                <th scope="row">Q4</th>
+                <td>$443</td>
+                <td>$333</td>
+                <td>$543</td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+</head>
+</html>

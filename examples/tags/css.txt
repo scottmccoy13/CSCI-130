@@ -1,0 +1,57 @@
+This file will list and contain information about important CSS features covered in class.
+
+------------------------------------------------------------------------------------------
+
+
+The id selector
+
+The class selector
+
+Comments:
+	CSS uses C style comments, i.e. /* this is a comment */
+
+The grouping selector
+
+
+
+Different ways to use CSS:
+	Inline:
+
+	External:
+
+	Internal:
+
+Units:
+	
+
+Colors:
+
+Background:
+
+Fonts:
+
+Text:
+
+Images:
+
+Paragraph effects:
+
+Margins:
+
+Padding:
+
+CSS Properties and Values:
+
+Gradient:
+
+Span vs Div:
+
+Link Functionality:
+
+SVG:
+
+Animation:
+
+More Selectors:
+
+

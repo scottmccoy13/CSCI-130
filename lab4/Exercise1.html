@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Exercise 1</title>
+    
+    
+</head>
+
+<html>
+<body>
+    <header>
+        <h1>Exercise 1</h1>
+    </header>
+    
+    <script>
+        while(true) {
+            var input = prompt("Enter the function you want to evaluate: ");
+            var a;
+            switch(input){
+                case "1": //10
+                    a = "" + 1 + 0;
+                    alert(a);
+                    break;
+
+                case "2"://-1
+                    a = "" - 1 + 0;
+                    alert(a);
+                    break;
+                    
+                case "3"://1
+                    a = true + false;
+                    alert(a);
+                    break;
+                    
+                case "4"://2
+                    a = 6 / "3";
+                    alert(a);
+                    break;
+                    
+                case "5"://6
+                    a = "2" * "3";
+                    alert(a);
+                    break;
+                    
+                case "6"://9px
+                    a = 4 + 5 + "px";
+                    alert(a);
+                    break;
+                    
+                case "7"://$45
+                    a = "$" + 4 + 5;
+                    alert(a);
+                    break;
+                    
+                case "8"://2
+                    a = "4" - 2;
+                    alert(a);
+                    break;
+                    
+                case "9"://NaN
+                    a = "4px" - 2;
+                    alert(a);
+                    break;
+                
+                case "10"://Infinity
+                    a = 7/0;
+                    alert(a);
+                    break;
+                    
+                case "11"://-9 5
+                    a = " -9\n" + 5;
+                    alert(a);
+                    break;
+                    
+                case "12"://-14
+                    a = " -9\n" - 5;
+                    alert(a);
+                    break;
+                    
+                case "13"://1
+                    a = null + 1;
+                    alert(a);
+                    break;
+                    
+                case "14"://NaN
+                    a = undefined + 1;
+                    alert(a);
+                    break;
+                    
+                default:
+                    alert("Error! Invalid index");
+                    break;
+            }
+        }
+           
+    </script>
+    
+</body>
+
+    <footer>
+        Author: Scott McCoy
+    </footer>
+    
+</html>

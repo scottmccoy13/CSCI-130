@@ -1,0 +1,35 @@
+This document will serve as a reference to some of the important html tags that we cover in class.
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<body>
+
+<header>
+
+<footer>
+
+<span>
+
+<div>
+
+<nav>
+
+<article>
+
+<aside>
+
+lists: <ol>, <ul>, <li>
+
+<table>
+
+<video> 
+
+<audio>
+
+youtube integration with <iframe>
+
+

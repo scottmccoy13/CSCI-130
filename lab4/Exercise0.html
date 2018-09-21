@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8"/>
+</head>
+
+
+<html>
+    <header>
+        <h1>Exercise 0</h1>
+    </header>
+    
+    <body>
+        <script>
+            
+            function circleArea(radius) {
+                let ans = Math.pow(radius, 2) * Math.PI;
+                return ans;    
+            }
+            
+            function circleCircumference(radius) {
+                let ans = 2 * Math.PI * radius;
+                return ans;
+            }
+            
+            function rectangleArea(length, width) {
+                let ans = length * width;
+                return ans;
+            }
+            
+            function rectanglePerimeter(length, width) {
+                let ans = (length * 2) + (width * 2);
+                return ans;
+            }
+            
+            
+            
+            alert("This is my first javascript function");
+            
+            var shape = prompt("Enter the type of shape: ")
+            var radius;
+            var length;
+            var width;
+            var area_answer;
+            var perimeter_answer;
+            switch(shape) {
+                case "circle":
+                    radius = Number(prompt("Enter the radius of the circle: "));
+                    
+                    area_answer = circleArea(radius);
+                    perimeter_answer = circleCircumference(radius);
+                    
+                    document.write("Area: ", area_answer);
+                    document.write("Area: ", perimeter_answer);
+                    break;
+                    
+                case "rectangle":
+                    length = Number(prompt("Enter the length of the rectangle: "));
+                    width  = Number(prompt("Enter the width of the rectangle: "));
+                    
+                    area_answer = rectangleArea(length, width);
+                    perimeter_answer = rectanglePerimeter(length, width);
+                    
+                    document.write("Area: ", area_answer);
+                    document.write("Perimeter: ", perimeter_answer);
+                    break;
+                    
+                case "trapeziod":
+                    break;
+                    
+                default:
+                    alert("Error! Shape not recognized");
+            }
+        </script>
+    </body>
+
+    <footer>
+        Author: Scott McCoy
+    </footer>
+</html>

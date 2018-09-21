@@ -3,21 +3,23 @@
 <head>
     <style>
         body {
-            background-color: cornflowerblue;
+            background-color: white;
         }
         
         table {
             background-color: floralwhite;
             text-align: center;
+            border: 2px solid blue;
             border-collapse: collapse;
             width: 50%;
         }
         
         th {
-            height: 50px;
+            border-collapse: collapse;
         }
-        
-        table, tr, th, td {
+
+        td {
+            height: 50px;
             border: 1px solid red;
         }
         
@@ -25,55 +27,41 @@
             font-size: 25px;
         }
         
-        tr:nth-child(even) {background-color: gainsboro}
-        
     </style>
     
     
     
     <table>
-        <caption>A Practice Table</caption>
+        <caption>TV Schedule</caption>
             <thead> <!-- Table head -->
                 <tr>
-                    <th scope="col">Quarter</th>
-                    <th scope="col">1962</th>
-                    <th scope="col">1963</th>
-                    <th scope="col">1964</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Mon</th>
+                    <th scope="col">Tue</th>
+                    <th scope="col">Wed</th>
                 </tr>
             </thead>
 
         <tbody>
             <tr>
-                <th scope="row">Q1</th>
-                <td>$145</td>
-                <td>$159</td>
-                <td>$164</td>
+                <th scope="row">8PM</th>
+                <td>Staring Contest</td>
+                <td colspan="2">Celebrity Hoedown</td>
             </tr>
 
             <tr>
-                <th scope="row">Q2</th>
-                <td>$143</td>
-                <td>$123</td>
-                <td>$452</td>
+                <th scope="row">9PM</th>
+                <td>Hardy, Har, Har</td>
+                <td>What's For Lunch</td>
+                <td rowspan="2">Movie of the Week</td>
             </tr>
 
             <tr>
-                <th scope="row">Q3</th>
-                <td>$342</td>
-                <td>$123</td>
-                <td>$543</td>
-            </tr>
-            
-            <tr>
-                <th scope="row">Q4</th>
-                <td>$443</td>
-                <td>$333</td>
-                <td>$543</td>
+                <th scope="row">10PM</th>
+                <td>Healers, Wheelers, and Dealers</td>
+                <td>It's A Crime</td>
             </tr>
         </tbody>
-
-
-
     </table>
 </head>
 </html>

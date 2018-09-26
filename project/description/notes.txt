@@ -1,0 +1,26 @@
+The first thing that I will do for this project is catagorize the requirements to make it 
+easier to determine the order in which I need to implement the different components.
+
+Core table elements:
+Reqirements 1.1-1.3, 1.5
+
+Game auxillary elements:
+1.4, 1.6, 2.6
+
+Core game logic:
+1.7, 1.8
+
+Level construction and loading:
+1.9-1.11, 2.1
+
+Server/database:
+2.2-2.5
+
+
+Website Architecture:
+There should be 4 pages. There will be a title page, a page providing instructions, a
+page providing information on the author, and a page where the user will actually 
+play the game. There will be a navigation bar at the top of the page that will allow
+the user to navigate between the different sections. The order of completion for the 
+project pages should be the game page, then the title page, then the instruction page, 
+then the author page.

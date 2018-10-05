@@ -1,0 +1,6 @@
+#calculator {
+    width: 60%;
+    height: 40%
+    display:table;
+    table-layout: fixed;
+}

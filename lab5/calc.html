@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        .keys {
+            display: inline-grid;
+            width:50%;
+            grid-auto-columns: 1fr;
+            grid-auto-rows: 1fr;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+    </style>
+</head>
+
+<html>
+<body>
+    <div id="calculator">
+        
+        <script>
+            var evalString = "";
+            function addToEvalString(input) {
+                if(input == "=")
+                {
+                    var answer = eval(evalString);
+                    alert(answer);
+                }
+                else if(input == "@")
+                {
+                    evalString = "";
+                }
+                else
+                { 
+                    evalString += input;
+                }
+                document.getElementById("currString").innerHTML = evalString;
+            }
+        </script>
+        
+        <div class="display">
+            <p id="currString"></p>
+        </div>
+        
+        <div class="keys">
+            <div id="row1">
+                <button class="key--operator" data-action="add" onclick="addToEvalString('+')">+</button>
+                <button class="key--operator" data-action="subtract" onclick="addToEvalString('-')">-</button>
+                <button class="key--operator" data-action="multiply" onclick="addToEvalString('*')">*</button>
+                <button class="key--operator" data-action="divide" onclick="addToEvalString('/')">/</button>
+            </div>
+            
+            <div id="row2">
+                <button onclick="addToEvalString('7')">7</button>
+                <button onclick="addToEvalString('8')">8</button>
+                <button onclick="addToEvalString('9')">9</button>
+            </div>
+            
+            <div id="row3">
+                <button onclick="addToEvalString('4')">4</button>
+                <button onclick="addToEvalString('5')">5</button>
+                <button onclick="addToEvalString('6')">6</button>
+            </div>
+            
+            <div id="row4">
+                <button onclick="addToEvalString('1')">1</button>
+                <button onclick="addToEvalString('2')">2</button>
+                <button onclick="addToEvalString('3')">3</button>
+            </div>
+            
+            <div id="row5">
+                <button onclick="addToEvalString('@')" data-action="clear">CE</button>
+                <button onclick="addToEvalString('.')" data-action="decimal">.</button>
+                <button onclick="addToEvalString('=')" class="key--equal" data-action="calculate">=</button>
+            </div>
+        </div>
+        
+    </div>
+    
+
+</body>
+</html>
+
+<footer>
+
+</footer> 

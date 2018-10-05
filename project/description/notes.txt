@@ -1,4 +1,4 @@
-The first thing that I will do for this project is catagorize the requirements to make it 
+    The first thing that I will do for this project is catagorize the requirements to make it 
 easier to determine the order in which I need to implement the different components.
 
 Core table elements:

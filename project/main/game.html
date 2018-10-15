@@ -16,7 +16,26 @@
         </ul>
     </nav>
     
-    <article>
+    <div id="snav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Account</a>
+        <a href="#">New Game</a>
+        <a href="#">Get Hint</a>
+        
+        <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776; open</span>
+
+        <script>
+            function openNav() {
+                document.getElementById("snav").style.width="250px";
+            }
+            
+            function closeNav() {
+                document.getElementById("snav").style.width="0";
+            }
+        </script>
+    </div>
+    
+    <article id="game">
         
     </article>
     

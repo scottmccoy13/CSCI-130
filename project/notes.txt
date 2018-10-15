@@ -1,0 +1,6 @@
+Start xampp by running sudo /opt/lampp/lampp start
+
+To use the GUI run:
+
+cd /opt/lampp
+sudo ./manager-linux.run

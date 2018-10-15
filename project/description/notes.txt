@@ -24,3 +24,8 @@ play the game. There will be a navigation bar at the top of the page that will a
 the user to navigate between the different sections. The order of completion for the 
 project pages should be the game page, then the title page, then the instruction page, 
 then the author page.
+
+Game Page:
+There should be the top navigation bar present, as well 
+as a side navigation bar where a user can start a new game,
+get a hint, or log in/log out.

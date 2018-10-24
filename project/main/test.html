@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    
+    <style>
+        #smalltable {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+    
+<script> 
+    function tableText(tableCell) {
+        alert("hi");
+    }
+    
+    function loadSmall() {
+        document.getElementById("smalltable").innerHTML='<object type="text/html" data="smalltable.html" ></object>';
+    }
+</script>
+    
+    <div id="smalltable">
+        <button onclick="loadSmall()">Button</button>
+    </div>
+      
+</html>

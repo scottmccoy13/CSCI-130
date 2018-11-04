@@ -1,95 +1,129 @@
+<style>
+    table td {
+        width: 30px;
+    }
+</style>
+
+
 <script>
         function changeState(element, event) {
-            if(event.shiftKey)
+            if(event.ctrlKey)
             {
                 element.style.backgroundColor='red';
             }
             else
             {
-                element.style.backgroundColor='blue';
+                element.style.backgroundColor='black';
+            }
+        }
+    
+        function setColor() {
+            var redslider = document.getElementById("redRange");
+            var blueslider = document.getElementById("blueRange");
+            var greenslider = document.getElementById("greenRange");
+            var output = document.getElementById("myTable").getElementsByTagName("td");
+            
+            r = redslider.value;
+            b = blueslider.value;
+            g = greenslider.value;
+
+            var i = 0;
+            for(i = 0; i < output.length; i++)
+            {
+                if (output[i].innerHTML == "")
+                output[i].style.backgroundColor = 'rgb(' + [r,g,b].join(',') + ')';
             }
         }
 </script>
 
+<div class="slideContainer">
+    <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
+    <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
+    <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
+    <h3>WARNING: setting the bg color will reset the game</h3>
+    <button onclick="setColor()">Set Background Color</button>
+</div>
+    
+
 <table id="myTable" border="1" style="cursor: pointer;">
     <tr>
         <th></th>
-        <th>#</th> 
         <th>#</th>
         <th>#</th>
         <th>#</th>
         <th>#</th>
         <th>#</th>
         <th>#</th>
+        <th>#</th>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
         <td>#</td>
-        <td onclick="changeState(this,event)">Cell</td> 
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
-        <td onclick="changeState(this,event)">Cell</td>
+        <td onclick="changeState(this,event)"></td> 
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event)"></td>
     </tr>
 </table>

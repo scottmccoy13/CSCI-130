@@ -37,11 +37,26 @@
 </script>
 
 <div class="slideContainer">
+    <h3>The following elements will be present in the setup sequence</h3>
+    <h5>Set the grid color</h5>
     <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
-    <h3>WARNING: setting the bg color will reset the game</h3>
     <button onclick="setColor()">Set Background Color</button>
+    
+    <h5>Set the cell color</h5>
+    <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
+    <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
+    <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
+    <br>
+    
+    <h5>Select the table size</h5>
+    <input type="radio" name="size" value="seven">7<br>
+    <input type="radio" name="size" value="thirteen">13<br>
+    
+    <!-- at the end here we will have a single submit button -->
+    
+    <h3>The table here will be generated based on the above info</h3>
 </div>
     
 

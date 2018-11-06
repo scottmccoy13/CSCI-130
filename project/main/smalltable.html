@@ -6,7 +6,26 @@
 
 
 <script>
-        function changeState(element, event) {
+        function startTimer() {
+            var time = new Date();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+                time.setSeconds(time.getSeconds()+1)
+
+                // Time calculations for days, hours, minutes and seconds
+                var hours = time.getHours();
+                var minutes = time.getMinutes();
+                var seconds = time.getSeconds();
+                // Display the result in the element with id="demo"
+                document.getElementById("demo").innerHTML = hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            }, 1000)
+        }
+    
+        function changeState(element, event) {   
+            startTimer();
             if(event.ctrlKey)
             {
                 element.style.backgroundColor='red';
@@ -59,6 +78,10 @@
     <h3>The table here will be generated based on the above info</h3>
 </div>
     
+
+
+
+<div id="myTimer">00:00:00</div>
 
 <table id="myTable" border="1" style="cursor: pointer;">
     <tr>

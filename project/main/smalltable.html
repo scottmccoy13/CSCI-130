@@ -1,6 +1,7 @@
 <style>
-    table td {
+    table td, th  {
         width: 30px;
+        height: 25px;
     }
 </style>
 
@@ -8,6 +9,10 @@
 <script>
         function startTimer() {
             var time = new Date();
+            time.setHours(0);
+            time.setMinutes(0);
+            time.setSeconds(0);
+            loadLevel();
 
             // Update the count down every 1 second
             var x = setInterval(function() {
@@ -18,14 +23,26 @@
                 var minutes = time.getMinutes();
                 var seconds = time.getSeconds();
                 // Display the result in the element with id="demo"
-                document.getElementById("demo").innerHTML = hours + "h "
+                document.getElementById("myTimer").innerHTML = hours + "h "
                 + minutes + "m " + seconds + "s ";
-
             }, 1000)
+            
         }
+        
+        //toy function to try level loading strategies
+        function loadLevel() {
+            levelArray = ["1,0,1 1", "7,0,1 1", "4,0,1", "0,4,1", "0,7,1 1"];
+            
+            var table = document.getElementById("myTable");
+            
+            for(var i = 0; i < levelArray.length; i++) {
+                levelString = levelArray[i].split(',');
+                table.rows[levelString[0]].cells[levelString[1]].innerHTML = levelString[2];
+            }
+        }
+        
     
         function changeState(element, event) {   
-            startTimer();
             if(event.ctrlKey)
             {
                 element.style.backgroundColor='red';
@@ -80,22 +97,25 @@
     
 
 
-
-<div id="myTimer">00:00:00</div>
+<!-- clicking this button loads the level and starts the game -->
+<div id="myTimer">
+    00:00:00
+    <button onclick="startTimer()">Start time</button>
+</div>
 
 <table id="myTable" border="1" style="cursor: pointer;">
     <tr>
         <th></th>
-        <th>#</th>
-        <th>#</th>
-        <th>#</th>
-        <th>#</th>
-        <th>#</th>
-        <th>#</th>
-        <th>#</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -105,7 +125,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -115,7 +135,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -125,7 +145,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -135,7 +155,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -145,7 +165,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>
@@ -155,7 +175,7 @@
         <td onclick="changeState(this,event)"></td>
     </tr>
     <tr>
-        <td>#</td>
+        <td></td>
         <td onclick="changeState(this,event)"></td> 
         <td onclick="changeState(this,event)"></td>
         <td onclick="changeState(this,event)"></td>

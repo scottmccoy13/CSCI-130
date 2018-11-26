@@ -30,8 +30,17 @@
         }
         
         //toy function to try level loading strategies
+        /*
+            The current strategy for loading the level will be to 
+            only store the cells that should be marked. every time a cell 
+            is activated it will be added to a list of currently active cells.
+            if currentlyactive == solution then the puzzle is complete.
+            
+            consider storing some table metadata for use
+        */
         function loadLevel() {
-            levelArray = ["1,0,1 1", "7,0,1 1", "4,0,1", "0,4,1", "0,7,1 1"];
+            //"y,x,str"
+            levelArray = ["1,0,1 1", "7,0,1 1", "4,0,1", "0,4,1", "0,7,1 1", "0,1,1 1"];
             
             var table = document.getElementById("myTable");
             
@@ -53,7 +62,7 @@
             }
         }
     
-        function setColor() {
+        function setBGColor() {
             var redslider = document.getElementById("redRange");
             var blueslider = document.getElementById("blueRange");
             var greenslider = document.getElementById("greenRange");
@@ -67,35 +76,66 @@
             for(i = 0; i < output.length; i++)
             {
                 if (output[i].innerHTML == "")
-                output[i].style.backgroundColor = 'rgb(' + [r,g,b].join(',') + ')';
+                {
+                    output[i].style.backgroundColor = 'rgb(' + [r,g,b].join(',') + ')';
+                }
+            }
+        }
+    
+        function setCellColor() {
+            var redslider = document.getElementById("redRange");
+            var blueslider = document.getElementById("blueRange");
+            var greenslider = document.getElementById("greenRange");
+            var output = document.getElementById("myTable").getElementsByTagName("td");
+            
+            r = redslider.value;
+            b = blueslider.value;
+            g = greenslider.value;
+
+            var i = 0;
+            for(i = 0; i < output.length; i++)
+            {
+                if (output[i].innerHTML == "")
+                {
+                    output[i].style.backgroundColor = 'rgb(' + [r,g,b].join(',') + ')';
+                }
             }
         }
 </script>
 
 <div class="slideContainer">
     <h3>The following elements will be present in the setup sequence</h3>
-    <h5>Set the grid color</h5>
+    <h5>Set the background color</h5>
     <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
-    <button onclick="setColor()">Set Background Color</button>
+    <button onclick="setBGColor()">Set Background Color</button>
     
     <h5>Set the cell color</h5>
     <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
     <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
+    <button onclick="setCellColor()">Set Selected Color</button>
     <br>
     
     <h5>Select the table size</h5>
     <input type="radio" name="size" value="seven">7<br>
     <input type="radio" name="size" value="thirteen">13<br>
     
+    <h5>Select the game mode</h5>
+    <input type="radio" name="gametype" value="arcade">Arcade<br>
+    <input type="radio" name="gametype" value="timeattack">Time Attack<br>
+    <!-- casual will deal with a random set of levels-->
+    <input type="radio" name="casual" value="casual">Casual<br>
+    <!--lets users play their own levels that they have uploaded-->
+    <input type="radio" name="custom" value="custom">Custom<br>
+    
+    <buttom onclick="start()">Go</buttom>
     <!-- at the end here we will have a single submit button -->
     
     <h3>The table here will be generated based on the above info</h3>
 </div>
     
-
 
 <!-- clicking this button loads the level and starts the game -->
 <div id="myTimer">

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>    
+<body>
+
+<?php
+    function createTable() {
+
+        $tablename = "mytable";
+        // Connect to MySQL
+        $link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+        if (!$link) {
+            die('Could not connect: ' . mysql_error());
+        }
+
+        // Make my_db the current database
+        $db_selected = mysql_select_db($tablename, $link);
+
+        if (!$db_selected) {
+            // If we couldn't, then it either doesn't exist, or we can't see it.
+            $sql = 'CREATING DATABASE';
+
+            if (mysql_query($sql, $link)) {
+                echo "Database my_db created successfully\n";
+            } 
+            else {
+                echo 'Error creating database: ' . mysql_error() . "\n";
+            }
+        }
+        else
+        {
+            echo 'Database accessed';
+        }
+        mysql_close($link);
+    }
+
+    createTable("testTable");
+?>
+    <input type="submit" class="button" name="insert" value="createTable" />
+    
+</body>
+</html>

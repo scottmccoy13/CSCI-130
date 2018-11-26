@@ -43,6 +43,10 @@ li a:hover:not(.active) {
     width: 100%;
 }
 
+.slideContainer {
+    
+}
+
 /* used for the side nav */
 .snav {
     width: 155px;

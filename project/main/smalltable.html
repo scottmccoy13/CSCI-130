@@ -7,6 +7,13 @@
 
 
 <script>
+        class gameObject {
+            constructor() {
+                var solution = null;
+            }
+        }
+        var game = new gameObject();
+    
         function startTimer() {
             var time = new Date();
             time.setHours(0);
@@ -39,6 +46,7 @@
             consider storing some table metadata for use
         */
         function loadLevel() {
+            //start loading of the hints
             //"y,x,str"
             levelArray = ["1,0,1 1", "7,0,1 1", "4,0,1", "0,4,1", "0,7,1 1", "0,1,1 1"];
             
@@ -48,6 +56,15 @@
                 levelString = levelArray[i].split(',');
                 table.rows[levelString[0]].cells[levelString[1]].innerHTML = levelString[2];
             }
+            //end hint loading
+            
+            //start solution loading
+            solutionArray = ["(1,0)", "(7,0)", "(4,0)", "(0,4)", "(0,7)", "(0,1)"];
+            var solutionSet = new Set();
+            for(var i = 0; i < solutionArray.length; i++) {
+                solutionSet.add(solutionArray[i]);
+            }
+            game.solution = solutionSet;
         }
         
     
@@ -101,6 +118,12 @@
                 }
             }
         }
+    
+        function printInfo() {
+            alert(game.solution.has("(1,0)"));
+        }
+    
+        
 </script>
 
 <div class="slideContainer">
@@ -141,6 +164,10 @@
 <div id="myTimer">
     00:00:00
     <button onclick="startTimer()">Start time</button>
+</div>
+
+<div id="globalTest">
+    <button onclick="printInfo()">test</button>
 </div>
 
 <table id="myTable" border="1" style="cursor: pointer;">

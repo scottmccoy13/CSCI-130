@@ -10,6 +10,7 @@
         class gameObject {
             constructor() {
                 var solution = null;
+                var userSolution = null;
             }
         }
         var game = new gameObject();
@@ -59,24 +60,48 @@
             //end hint loading
             
             //start solution loading
-            solutionArray = ["(1,0)", "(7,0)", "(4,0)", "(0,4)", "(0,7)", "(0,1)"];
+            solutionArray = ["(1,1)", "(1,7)", "(4,4)", "(7,1)", "(7,7)"];
             var solutionSet = new Set();
             for(var i = 0; i < solutionArray.length; i++) {
                 solutionSet.add(solutionArray[i]);
             }
             game.solution = solutionSet;
+            game.userSolution = new Set();
         }
         
     
-        function changeState(element, event) {   
+        function changeState(element, event, selection) {   
             if(event.ctrlKey)
             {
+                //for marking cells as bad
                 element.style.backgroundColor='red';
             }
             else
             {
                 element.style.backgroundColor='black';
+                if(game.userSolution.has(selection))
+                {
+                    game.userSolution.delete(selection);
+                }
+                else
+                {
+                    game.userSolution.add(selection);
+                    checkVictory();
+                }
             }
+        }
+    
+        function checkVictory() {
+            if(checkSolutionEquality())
+            {
+                alert("You WIN!");
+            }
+        }
+    
+        function checkSolutionEquality() {
+            if(game.solution.size !== game.userSolution.size) return false;
+            for(var item of game.solution) if (!game.userSolution.has(item)) return false;
+            return true;
         }
     
         function setBGColor() {
@@ -183,72 +208,72 @@
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,1)')"></td> 
+        <td onclick="changeState(this,event,'(2,1)')"></td>
+        <td onclick="changeState(this,event,'(3,1)')"></td>
+        <td onclick="changeState(this,event,'(4,1)')"></td>
+        <td onclick="changeState(this,event,'(5,1)')"></td>
+        <td onclick="changeState(this,event,'(6,1)')"></td>
+        <td onclick="changeState(this,event,'(7,1)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,2)')"></td> 
+        <td onclick="changeState(this,event,'(2,2)')"></td>
+        <td onclick="changeState(this,event,'(3,2)')"></td>
+        <td onclick="changeState(this,event,'(4,2)')"></td>
+        <td onclick="changeState(this,event,'(5,2)')"></td>
+        <td onclick="changeState(this,event,'(6,2)')"></td>
+        <td onclick="changeState(this,event,'(7,2)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,3)')"></td> 
+        <td onclick="changeState(this,event,'(2,3)')"></td>
+        <td onclick="changeState(this,event,'(3,3)')"></td>
+        <td onclick="changeState(this,event,'(4,3)')"></td>
+        <td onclick="changeState(this,event,'(5,3)')"></td>
+        <td onclick="changeState(this,event,'(6,3)')"></td>
+        <td onclick="changeState(this,event,'(7,3)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,4)')"></td> 
+        <td onclick="changeState(this,event,'(2,4)')"></td>
+        <td onclick="changeState(this,event,'(3,4)')"></td>
+        <td onclick="changeState(this,event,'(4,4)')"></td>
+        <td onclick="changeState(this,event,'(5,4)')"></td>
+        <td onclick="changeState(this,event,'(6,4)')"></td>
+        <td onclick="changeState(this,event,'(7,4)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,5)')"></td> 
+        <td onclick="changeState(this,event,'(2,5)')"></td>
+        <td onclick="changeState(this,event,'(3,5)')"></td>
+        <td onclick="changeState(this,event,'(4,5)')"></td>
+        <td onclick="changeState(this,event,'(5,5)')"></td>
+        <td onclick="changeState(this,event,'(6,5)')"></td>
+        <td onclick="changeState(this,event,'(7,5)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,6)')"></td> 
+        <td onclick="changeState(this,event,'(2,6)')"></td>
+        <td onclick="changeState(this,event,'(3,6)')"></td>
+        <td onclick="changeState(this,event,'(4,6)')"></td>
+        <td onclick="changeState(this,event,'(5,6)')"></td>
+        <td onclick="changeState(this,event,'(6,6)')"></td>
+        <td onclick="changeState(this,event,'(7,6)')"></td>
     </tr>
     <tr>
         <td></td>
-        <td onclick="changeState(this,event)"></td> 
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
-        <td onclick="changeState(this,event)"></td>
+        <td onclick="changeState(this,event,'(1,7)')"></td> 
+        <td onclick="changeState(this,event,'(2,7)')"></td>
+        <td onclick="changeState(this,event,'(3,7)')"></td>
+        <td onclick="changeState(this,event,'(4,7)')"></td>
+        <td onclick="changeState(this,event,'(5,7)')"></td>
+        <td onclick="changeState(this,event,'(6,7)')"></td>
+        <td onclick="changeState(this,event,'(7,7)')"></td>
     </tr>
 </table>

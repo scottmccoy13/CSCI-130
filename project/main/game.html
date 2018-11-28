@@ -10,7 +10,7 @@
     
     <div class="snav">
         <h2>Menu</h2>
-        <a href="#">New Game</a>
+        <a href="game.html">New Game</a>
         <a href="#">Hint</a>
     </div>
     
@@ -24,8 +24,52 @@
     </nav>
     
     <script>
-        function go() {
+        class requestObject {
+            constructor() {
+                var gridColor = null;
+                var cellColor = null;
+                var gameSize  = null;
+                var gameType  = null;
+            }
+        }
+        
+        var request = new requestObject();
+        
+        function setGridColor() {
+            var redslider = document.getElementById("redRange");
+            var blueslider = document.getElementById("blueRange");
+            var greenslider = document.getElementById("greenRange");
             
+            r = redslider.value;
+            b = blueslider.value;
+            g = greenslider.value;
+
+            var output = 'rgb(' + [r,g,b].join(',') + ')';
+            request.gridColor = output;
+        }
+    
+        function setCellColor() {
+            var redslider = document.getElementById("redRange");
+            var blueslider = document.getElementById("blueRange");
+            var greenslider = document.getElementById("greenRange");
+            
+            r = redslider.value;
+            b = blueslider.value;
+            g = greenslider.value;
+
+            var output =  'rgb(' + [r,g,b].join(',') + ')';
+            request.cellColor = output;
+        }
+        
+        function setValues() {
+            var radios = document.getElementsByName("gametype");
+            for(var i = 0; i < radios.length; i++) {
+                if(radios[i].checked)
+                {
+                    alert(radios[i].value);
+                    break;
+                }
+            }
         }
     </script>
     
@@ -35,12 +79,13 @@
         <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
-        <button onclick="setColor()">Set Background Color</button>
+        <button onclick="setGridColor()">Set Grid Color</button>
 
         <h5>Set the cell color</h5>
         <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
+        <button onclick="setCellColor()">Set Grid Color</button>
         <br>
 
         <h5>Select the table size</h5>
@@ -51,19 +96,13 @@
         <input type="radio" name="gametype" value="arcade">Arcade<br>
         <input type="radio" name="gametype" value="timeattack">Time Attack<br>
         <!-- casual will deal with a random set of levels-->
-        <input type="radio" name="casual" value="casual">Casual<br>
+        <input type="radio" name="gametype" value="casual">Casual<br>
         <!--lets users play their own levels that they have uploaded-->
-        <input type="radio" name="custom" value="custom">Custom<br>
-
-        <button onclick="start()">Go</button>
-        <!-- at the end here we will have a single submit button -->
-
-        <h3>The table here will be generated based on the above info</h3>
+        <input type="radio" name="gametype" value="custom">Custom<br>
+        <br>
+        <button onclick="setValues()">Set Values</button>
+        
     </div>
-    
-    
-    
-    
     
     
     <footer>

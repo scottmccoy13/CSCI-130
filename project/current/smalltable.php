@@ -3,7 +3,7 @@
    session_start();
 ?>
 
-<!DOCTYPE html>s
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -13,6 +13,11 @@
         table td, th  {
             width: 80px;
             height: 60px;
+        }
+
+        #myTable {
+            border:3px solid;
+            border-collapse: collapse;
         }
 
         .hidden {
@@ -28,9 +33,6 @@
 <script>
         class requestObject {
             constructor() {
-                var gridColor = null;
-                var cellColor = null;
-                var gameSize  = null;
                 var gameType  = null;
             }
         }
@@ -42,9 +44,14 @@
                 var userSolution = null;
                 var gridColor = null;
                 var blockColor = null;
+                var numElts = 0;
+                var numTurns = 0;
             }
         }
         var game = new gameObject();
+        //not sure why I have to initialize again here...
+        game.numElts = 0;
+        game.numTurns = 0;
 
         class levelObject {
             constructor() {
@@ -56,7 +63,6 @@
         //start loading of the hints
         //"y,x,str"
         level.levelArray = ["1,0,1 1", "7,0,1 1", "4,0,1", "0,4,1", "0,7,1 1", "0,1,1 1"];
-        
         level.solutionArray = ["(1,1)", "(1,7)", "(4,4)", "(7,1)", "(7,7)"];
 
         function startTimer() {
@@ -103,18 +109,34 @@
             {
                 //for marking cells as bad
                 element.style.backgroundColor='red';
-            }
+                game.numTurns++;
+                var turns = "Turn Number: " + game.numTurns.toString();
+                document.getElementById("numTurns").innerHTML = turns;            }
             else
             {
                 if(game.userSolution.has(selection))
                 {
-                    game.userSolution.delete(selection);
+                    game.numElts--;
+                    game.numTurns++;
+                    var elts = "Number of Elements: " + game.numElts.toString();
+                    var turns = "Turn Number: " + game.numTurns.toString();
+
+                    document.getElementById("numTurns").innerHTML = turns;
+                    document.getElementById("numElts").innerHTML = elts;
                     element.style.backgroundColor='white';
+                    game.userSolution.delete(selection);
                     checkVictory();
                 }
                 else
                 {
-                    element.style.backgroundColor='black';
+                    game.numElts++;
+                    game.numTurns++;
+                    var elts = "Number of Elements: " + game.numElts.toString();
+                    var turns = "Turn Number: " + game.numTurns.toString();
+
+                    document.getElementById("numTurns").innerHTML = turns;
+                    document.getElementById("numElts").innerHTML = elts;
+                    element.style.backgroundColor = game.blockColor;
                     game.userSolution.add(selection);
                     checkVictory();
                 }
@@ -145,7 +167,7 @@
             g = greenslider.value;
 
             var output = 'rgb(' + [r,g,b].join(',') + ')';
-            request.gridColor = output;
+            game.gridColor = output;
         }
 
         function setCellColor() {
@@ -158,11 +180,18 @@
             g = greenslider.value;
 
             var output =  'rgb(' + [r,g,b].join(',') + ')';
-            request.cellColor = output;
+            game.blockColor = output;
+            
         }
  
         function setValues() {
             //hides the settings and renders the table
+            if(game.blockColor == null || game.gridColor == null)
+            {
+                alert("You must set block and cell color before continuing");
+                exit();
+            }
+
             var settings  = document.getElementById("settingsContainer");
             var gameTable = document.getElementById("gameContainer");
 
@@ -183,7 +212,7 @@
 
             //This block applies the color choices to the game
             document.getElementById("myTable").style.borderColor = game.gridColor;
-            alert(game.gridColor);
+
             
             //This block sets the value for the game type
             var radios = document.getElementsByName("gametype");
@@ -232,18 +261,17 @@
     </nav>
 
     <div class="settingsContainer" id="settingsContainer">
-        <h3>The following elements will be present in the setup sequence</h3>
         <h5>Set the grid color</h5>
         <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
         <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
-        <button onclick="setGridColor()">Set Grid Color</button>
+        <button onclick="setGridColor()">Set Grid Color (rgb)</button>
 
         <h5>Set the cell color</h5>
-        <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
-        <input type="range" min="0" max="255" value="0" class="slider" id="blueRange">
-        <input type="range" min="0" max="255" value="0" class="slider" id="greenRange">
-        <button onclick="setCellColor()">Set Grid Color</button>
+        <input type="range" min="1" max="255" value="0" class="slider" id="redRange">
+        <input type="range" min="1" max="250" value="0" class="slider" id="blueRange">
+        <input type="range" min="1" max="255" value="0" class="slider" id="greenRange">
+        <button onclick="setCellColor()">Set Cell Color (rgb)</button>
         <br>
 
         <h5>Select the game mode</h5>
@@ -259,12 +287,21 @@
     
     <div class="hidden" id="gameContainer" style="position:absolute; right: 400px; top:65px;">
         <!-- clicking this button loads the level and starts the game -->
+        <div id="numTurns">
+            Turn Number: 0
+        </div>
+
+        <div id="numElts">
+            <!-- number of elements on grid not including markers -->
+            Number of Elements: 0
+        </div>
+
         <div id="myTimer">
             00:00:00
             <button onclick="startTimer()">Start time</button>
         </div>
 
-        <table id="myTable" border="1" style="cursor:pointer;">
+        <table id="myTable" border="1px solid" style="cursor:pointer;">
             <tr>
                 <th></th>
                 <th></th>
@@ -345,8 +382,7 @@
                 <td onclick="changeState(this,event,'(6,7)')"></td>
                 <td onclick="changeState(this,event,'(7,7)')"></td>
             </tr>
-        </table>
-        
+        </table>     
     </div>
     
 

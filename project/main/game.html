@@ -1,5 +1,9 @@
-<!DOCTYPE html>
 
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -62,18 +66,49 @@
         }
         
         function setValues() {
+            //This block sets the value for the grid size
+            var gridSize = document.getElementsByName("size");
+            for(var i = 0; i < gridSize.length; i++)
+            {
+                if(gridSize[i].checked)
+                {
+                    //alert(gridSize[i].value);
+                    request.gameSize = gridSize[i].value;
+                    break;
+                }
+            }
+            
+            //This block sets the value for the game type
             var radios = document.getElementsByName("gametype");
             for(var i = 0; i < radios.length; i++) {
                 if(radios[i].checked)
                 {
-                    alert(radios[i].value);
+                    //alert(radios[i].value);
+                    request.gameType = radios[i].value;
                     break;
                 }
             }
+            
+            //Build the request string 
+            txt = "";
+            for(var x in request) {
+                txt+=request[x] + ",";
+            }
+            
+            //Send the request string
+            if(request.gameType == "test")
+            {
+                alert("test");
+            }
+            else
+            {
+                alert("Sending request (when implemented)");
+            }
         }
+        
     </script>
     
-    <div class="settingsContainer" style="position:absolute; right: 500px; top:30px;">
+    <div class="settingsContainer" style="position:absolute; right: 500px; top:30px;" id="main">
         <h3>The following elements will be present in the setup sequence</h3>
         <h5>Set the grid color</h5>
         <input type="range" min="0" max="255" value="0" class="slider" id="redRange">
@@ -95,11 +130,11 @@
         <h5>Select the game mode</h5>
         <input type="radio" name="gametype" value="arcade">Arcade<br>
         <input type="radio" name="gametype" value="timeattack">Time Attack<br>
-        <!-- casual will deal with a random set of levels-->
-        <input type="radio" name="gametype" value="casual">Casual<br>
-        <!--lets users play their own levels that they have uploaded-->
+        <!-- for playing user generated levels -->
         <input type="radio" name="gametype" value="custom">Custom<br>
-        <br>
+        <!-- test -->
+        <input type="radio" name="gametype" value="test">Test<br>
+           
         <button onclick="setValues()">Set Values</button>
         
     </div>

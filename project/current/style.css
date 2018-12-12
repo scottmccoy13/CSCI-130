@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: green;
+}
+
+#greeting {
+    padding-top: 60px;
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    bottom: 5px;
+    width: 100%;
+}
+
+.settingsContainer {
+    position:fixed;  
+    top:30px;
+    padding-top:20px;
+    padding-left:175px;
+    z-index: -1;
+}
+
+/* used for the side nav */
+.snav {
+    width: 155px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    color: white;
+    overflow-x: hidden;
+    padding-top: 50px;
+}
+
+.snav a {
+    padding: 8px 6px 8px 6px;
+    font-size: 20px;
+    color: white;
+    background-color: #333;
+    display: block;
+    text-decoration: none;
+}
+
+.snav a:hover() {
+    background-color: #111;
+}
+/* end side nav */
